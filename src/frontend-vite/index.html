@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Advisor Chatbot</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Security Advisor Chatbot</h1>
+            <div id="user-info" class="hidden">
+                <div class="rank-info">
+                    <div class="rank-badge">
+                        <span id="rank-number">1</span>
+                    </div>
+                    <div class="rank-details">
+                        <h3 id="rank-name">Security Novice</h3>
+                        <div class="xp-bar-container">
+                            <div class="xp-bar" id="xp-progress"></div>
+                        </div>
+                        <div class="xp-text">
+                            <span id="current-xp">0</span> / <span id="next-rank-xp">100</span> XP
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="login-container">
+            <h2>Welcome to the Security Advisor</h2>
+            <p>Enter your user ID to begin or continue your security learning journey.</p>
+            <div class="login-form">
+                <input type="text" id="user-id-input" placeholder="Enter your User ID">
+                <button id="login-button">Start Learning</button>
+            </div>
+        </div>
+
+        <main id="chat-container" class="hidden">
+            <div id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Welcome to your Security Advisor! Ask me anything about cybersecurity best practices, and I'll help you learn and advance through the ranks.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <textarea id="user-input" placeholder="Type your security question here..." rows="3"></textarea>
+                <button id="send-button">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </div>
+        </main>
+
+        <div id="xp-notification" class="hidden">
+            <div class="xp-badge">
+                <span id="xp-gained">+10</span> XP
+            </div>
+        </div>
+    </div>
+
+    <template id="user-message-template">
+        <div class="message user-message">
+            <div class="message-content"></div>
+        </div>
+    </template>
+
+    <template id="bot-message-template">
+        <div class="message bot-message">
+            <div class="message-content"></div>
+        </div>
+    </template>
+
+    <template id="rank-up-notification-template">
+        <div class="rank-up-notification">
+            <h3>Rank Up!</h3>
+            <div class="new-rank">
+                <div class="rank-badge">
+                    <span class="new-rank-number"></span>
+                </div>
+                <div class="new-rank-name"></div>
+            </div>
+            <p>Congratulations! You've advanced to a new rank. New security topics are now available.</p>
+        </div>
+    </template>
+
+    <script src="./src/main.js"></script>
+</body>
+</html>
